@@ -6,6 +6,15 @@ import Weather from "./components/weather";
 const API_KEY = "4986bb0847cb5d3ab71bcd83c6dad874";
 
 class App extends React.Component {
+
+    state = {
+        temp: undefined,
+        city: undefined,
+        country: undefined,
+        sunrise: undefined,
+        sunset: undefined,
+        error: undefined
+    }
     
     
     // Create a method that belongs to this component, the name gettingWeather is any
@@ -20,6 +29,17 @@ class App extends React.Component {
 
         const data = await api_url.json();
         console.log(data);
+
+    // The method that allows you to set the state
+        this.setState({
+            temp: data.main.temp,
+            city: data.name,
+            country: data.sys.country,
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset,
+            error: ""
+
+        });
     }
 
     render() {
@@ -27,7 +47,14 @@ class App extends React.Component {
             <div>
                 <Info />
                 <Form weatherMethod={this.gettingWeather}/>
-                <Weather />
+                <Weather 
+                 temp={this.state.temp}
+                 city={this.state.city}
+                 country={this.state.country}
+                 sunrise={this.state.sunrise}
+                 sunset={this.state.sunset}
+                 error={this.state.error}
+                />
             </div>
         );
     }
