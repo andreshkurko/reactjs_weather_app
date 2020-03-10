@@ -29,14 +29,15 @@ class App extends React.Component {
         const api_url = await 
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
     
-        // Convert information to format json
+    // Convert information to format json
         const data = await api_url.json();
 
+    // Convert information sunset
         var sunset = data.sys.sunset;
         var date = new Date();
         date.setTime(sunset);
         var sunset_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
+    // Convert information sunrise
         var sunrise = data.sys.sunrise;
         var date2 = new Date();
         date.setTime(sunrise);
