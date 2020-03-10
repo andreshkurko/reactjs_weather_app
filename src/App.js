@@ -32,12 +32,22 @@ class App extends React.Component {
         // Convert information to format json
         const data = await api_url.json();
 
+        var sunset = data.sys.sunset;
+        var date = new Date();
+        date.setTime(sunset);
+        var sunset_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+        var sunrise = data.sys.sunrise;
+        var date2 = new Date();
+        date.setTime(sunrise);
+        var sunrise_date = date2.getHours() + ":" + date2.getMinutes() + ":" + date2.getSeconds();
+
         this.setState({
             temp: data.main.temp,
             city: data.name,
             country: data.sys.country,
-            sunrise: data.sys.sunrise,
-            sunset: data.sys.sunset,
+            sunrise: sunrise_date,
+            sunset: sunset_date,
             error: ""
         });
     }
