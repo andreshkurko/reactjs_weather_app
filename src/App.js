@@ -11,6 +11,7 @@ class App extends React.Component {
         temp: undefined,
         city: undefined,
         country: undefined,
+        pressure: undefined,
         sunrise: undefined,
         sunset: undefined,
         error: undefined
@@ -47,6 +48,7 @@ class App extends React.Component {
             temp: data.main.temp,
             city: data.name,
             country: data.sys.country,
+            pressure: data.main.pressure,
             sunrise: sunrise_date,
             sunset: sunset_date,
             error: ""
@@ -63,6 +65,7 @@ render() {
                 temp={this.state.temp}
                 city={this.state.city}
                 country={this.state.country}
+                pressure={this.state.pressure}
                 sunrise={this.state.sunrise}
                 sunset={this.state.sunset}
                 error={this.state.error}
