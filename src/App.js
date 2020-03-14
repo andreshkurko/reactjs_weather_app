@@ -51,7 +51,17 @@ class App extends React.Component {
             pressure: data.main.pressure,
             sunrise: sunrise_date,
             sunset: sunset_date,
-            error: ""
+            error: undefined
+        });
+    } else {
+        this.setState({
+            temp: undefined,
+            city: undefined,
+            country: undefined,
+            pressure: undefined,
+            sunrise: undefined,
+            sunset: undefined,
+            error: "Enter the name of the city"
         });
     }
 }
