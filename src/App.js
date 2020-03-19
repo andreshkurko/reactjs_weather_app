@@ -68,7 +68,7 @@ class App extends React.Component {
 
 render() {
     return (
-        <div>
+        <div className="wrapper">
             <Info />
             <Form weatherMethod={this.gettingWeather} />
             <Weather 
