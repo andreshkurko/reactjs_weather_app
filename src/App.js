@@ -33,6 +33,7 @@ class App extends React.Component {
     // Convert information to format json
         const data = await api_url.json();
 
+
     // Convert information sunset
         var sunset = data.sys.sunset;
         var date = new Date();
@@ -77,7 +78,7 @@ render() {
                         </div>
                         <div className="col-sm-7 form">
                             <Form weatherMethod={this.gettingWeather} />
-                            <Weather 
+                            <Weather
                                 temp={this.state.temp}
                                 city={this.state.city}
                                 country={this.state.country}

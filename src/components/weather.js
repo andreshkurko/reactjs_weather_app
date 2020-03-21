@@ -5,6 +5,7 @@ const Weather = props => (
     <div className="infoWeath">
         { props.city &&
             <div>
+                <p>Icon: {props.icon}</p>
                 <p>Location: {props.city}, {props.country}</p>
                 <p>Temperature: {props.temp}</p>
                 <p>Location: {props.country}</p>
